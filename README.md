@@ -1,3 +1,94 @@
+> **【追記 / Added by @kjikuhar — 2025-11-01 JST】**
+> このリポジトリは **Conda なし（venv + pip）** で即動作します。
+> `Makefile` により環境構築が自動化されているため、どの端末でも同じ手順でセットアップ可能です。
+> *元のREADME本文はこの追記の下にあります。*
+
+## 🚀 最短セットアップ（Makefile使用 / Conda不要）
+
+### 推奨環境
+- Python 3.8–3.13（本書は3系を想定。安定性重視なら3.8–3.11を推奨）
+- make コマンドが使用可能であること（Linux / macOS / WSLで標準搭載）
+
+---
+
+### 1️⃣ 準備
+まずこのリポジトリをクローンします：
+
+```bash
+git clone https://github.com/oreilly-japan/deep-learning-from-scratch.git
+cd deep-learning-from-scratch
+````
+
+---
+
+### 2️⃣ セットアップ（ワンコマンド）
+
+以下のコマンドだけで仮想環境の作成・依存関係のインストール・Jupyter登録がすべて自動実行されます👇
+
+```bash
+make install
+```
+
+> `.venv` ディレクトリが自動作成され、`requirements.txt` に基づく環境が構築されます。
+
+---
+
+### 3️⃣ 実行
+
+Jupyter Notebookを開く場合：
+
+```bash
+make jupyter
+```
+
+その後、ブラウザで `http://localhost:8888` にアクセスするとノートブックが使えます。
+または、章ごとのPythonスクリプトを直接実行できます：
+
+```bash
+cd ch01
+python man.py
+
+cd ../ch05
+python train_neuralnet.py
+```
+
+---
+
+### 4️⃣ 依存関係（requirements.txt）
+
+必要なPythonパッケージは以下の通りです：
+
+```txt
+numpy==1.26.4
+matplotlib==3.8.4
+ipython==8.18.1
+ipykernel==6.29.5
+notebook==7.2.1
+tqdm==4.66.5
+pillow==10.4.0
+```
+
+> 書籍で使うNumPy・Matplotlibに加え、Notebook・進捗バー・画像処理をサポートする実用的な構成です。
+
+---
+
+### 5️⃣ 環境の削除（任意）
+
+作成した仮想環境を削除する場合：
+
+```bash
+make clean
+```
+
+---
+
+### 💡 補足
+
+* Windows環境では `make` の代わりに **Git Bash** や **WSL** で実行してください。
+* 仮想環境を手動で扱いたい場合は `. .venv/bin/activate` で有効化できます。
+
+---
+
 ゼロから作る Deep Learning
 ==========================
 
@@ -72,4 +163,3 @@ $ python train_nueralnet.py
 https://github.com/oreilly-japan/deep-learning-from-scratch/wiki/errata
 
 本ページに掲載されていない誤植など間違いを見つけた方は、[japan@oreilly.co.jp](<mailto:japan@oreilly.co.jp>)までお知らせください。
-
