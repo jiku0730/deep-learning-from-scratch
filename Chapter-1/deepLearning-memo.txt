@@ -1,0 +1,308 @@
+kjikuhar@c4r2s7 ~ % python
+Python 3.10.12 (main, Aug 15 2025, 14:32:43) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 1 + 2
+3
+>>> 1- 2
+-1
+>>> 4 * 5
+20
+>>> 7 / 5
+1.4
+>>>  3 ** 2
+  File "<stdin>", line 1
+    3 ** 2
+IndentationError: unexpected indent
+>>> 3 ** 2
+9
+>>> type(10)
+<class 'int'>
+>>> type(2.718)
+<class 'float'>
+>>> type("hello)
+  File "<stdin>", line 1
+    type("hello)
+         ^
+SyntaxError: unterminated string literal (detected at line 1)
+>>> type("hello")
+<class 'str'>
+>>> x = 10
+>>> print(x)
+10
+>>> type(x)
+<class 'int'>
+>>> x=100
+>>> print(x)
+100
+>>> y=3.14
+>>> x*y
+314.0
+>>> type(x*y)
+<class 'float'>
+>>> a=[1,2,3,4,5]
+>>> print(a)
+[1, 2, 3, 4, 5]
+>>> len(a)
+5
+>>> a[0]
+1
+>>> a[4]
+5
+>>> a[4]=99
+>>> print(a)
+[1, 2, 3, 4, 99]
+>>> a[0:2}
+  File "<stdin>", line 1
+    a[0:2}
+         ^
+SyntaxError: closing parenthesis '}' does not match opening parenthesis '['
+>>> a[0:2]
+[1, 2]
+>>> a[1:]
+[2, 3, 4, 99]
+>>> a[:]
+[1, 2, 3, 4, 99]
+>>> a[:3]
+[1, 2, 3]
+>>> a[:-1]
+[1, 2, 3, 4]
+>>> a[:-2]
+[1, 2, 3]
+>>> a[:-2.0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: slice indices must be integers or None or have an __index__ method
+>>> me={'height':180}
+>>> me['height']
+180
+>>> me['weight'] = 70
+>>> print(me)
+{'height': 180, 'weight': 70}
+>>> hungry = True
+>>> sleepy = False
+>>> type(hungry)
+<class 'bool'>
+>>> not hungry
+False
+>>> hungry and sleepy
+False
+>>> hungry or sleepy
+True
+>>> print(hungry)
+True
+>>> hungry = true
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'true' is not defined. Did you mean: 'True'?
+>>> if hungry:
+... print(I'm hungry)
+  File "<stdin>", line 2
+    print(I'm hungry)
+    ^
+IndentationError: expected an indented block after 'if' statement on line 1
+>>>     print(I'm hungry)
+  File "<stdin>", line 1
+    print(I'm hungry)
+IndentationError: unexpected indent
+>>> if hungry:
+...     print(I'm hungry)
+  File "<stdin>", line 2
+    print(I'm hungry)
+           ^
+SyntaxError: unterminated string literal (detected at line 2)
+>>> if hungry:
+...     print("I'm hungry")
+...
+I'm hungry
+>>> hungry = false
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'false' is not defined. Did you mean: 'False'?
+>>> hungry = False
+>>> if hungry:
+...     print("I'm hungry")
+...
+>>> if hungry:
+...     print("I'm hungry")
+... else
+  File "<stdin>", line 3
+    else
+        ^
+SyntaxError: expected ':'
+>>> if hungry:
+...     print("I'm hungry")
+... else:
+...     print("I'm not hungry")
+...     print("I'm sleepy")
+...
+I'm not hungry
+I'm sleepy
+>>> for i in [1,2,3]:
+...     print(i)
+...
+1
+2
+3
+>>> def hello():
+...     print("Hello World!")
+... hello()
+  File "<stdin>", line 3
+    hello()
+    ^^^^^
+SyntaxError: invalid syntax
+>>> def hello():
+...     print("Hello World!")
+...
+>>> hello()
+Hello World!
+>>> def hello(object):
+...     print("Hello" + object + "!")
+...
+>>> hello(kjikuhar)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'kjikuhar' is not defined
+>>> hello("kjikuhar")
+Hellokjikuhar!
+>>> これobjectの型宣言せんでいいのエグいぃぃ！！
+  File "<stdin>", line 1
+    これobjectの型宣言せんでいいのエグいぃぃ！！
+                           ^
+SyntaxError: invalid character '！' (U+FF01)
+>>>
+kjikuhar@c4r2s7 ~ % Python
+zsh: command not found: Python
+kjikuhar@c4r2s7 ~ % python
+Python 3.10.12 (main, Aug 15 2025, 14:32:43) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>> exit()
+kjikuhar@c4r2s7 ~ %
+
+
+
+
+
+
+
+
+
+kjikuhar@c4r2s7 ~/dev/repos/deep-learning-from-scratch/Chapter-1
+ % touch hungry.py
+kjikuhar@c4r2s7 ~/dev/repos/deep-learning-from-scratch/Chapter-1
+ % code hungry.py
+kjikuhar@c4r2s7 ~/dev/repos/deep-learning-from-scratch/Chapter-1
+ % python hungry.py
+I'm hungry!
+kjikuhar@c4r2s7 ~/dev/repos/deep-learning-from-scratch/Chapter-1
+ % touch man.py
+kjikuhar@c4r2s7 ~/dev/repos/deep-learning-from-scratch/Chapter-1
+ % code man.py
+kjikuhar@c4r2s7 ~/dev/repos/deep-learning-from-scratch/Chapter-1
+ % python man.py
+  File "/home/kjikuhar/dev/repos/deep-learning-from-scratch/Chapter-1/man.py", line 9
+    def goodbye(self)
+                     ^
+SyntaxError: expected ':'
+kjikuhar@c4r2s7 ~/dev/repos/deep-learning-from-scratch/Chapter-1
+ % python man.py
+Initialized!
+Hello David!
+Good-bye David!
+kjikuhar@c4r2s7 ~/dev/repos/deep-learning-from-scratch/Chapter-1
+ % python
+Python 3.10.12 (main, Aug 15 2025, 14:32:43) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import numpy as np
+>>> x=np.np.array([1.0, 2.0, 3.0])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/kjikuhar/.local/lib/python3.10/site-packages/numpy/__init__.py", line 414, in __getattr__
+    raise AttributeError("module {!r} has no attribute "
+AttributeError: module 'numpy' has no attribute 'np'
+>>> x=np.array([1.0, 2.0, 3.0])
+>>> print(x)
+[1. 2. 3.]
+>>> type(x)
+<class 'numpy.ndarray'>
+>>> x=np.array([1.0, 2.0, 3.0])
+>>> y=np.array([2.0, 4.0, 6.0])
+>>> x + y
+array([3., 6., 9.])
+>>> x- y
+array([-1., -2., -3.])
+>>> x*y
+array([ 2.,  8., 18.])
+>>> x/ y
+array([0.5, 0.5, 0.5])
+>>> x/ 2.0
+array([0.5, 1. , 1.5])
+>>> A = np.array([[1, 2],[3,4]])
+>>> print(A)
+[[1 2]
+ [3 4]]
+>>> A.shape
+(2, 2)
+>>> a>dtype
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'a' is not defined. Did you mean: 'A'?
+>>> A.dtype
+dtype('int64')
+>>> B=np.array([[3, 0],[0 ,6]])
+>>> A+B
+array([[ 4,  2],
+       [ 3, 10]])
+>>> A*B
+array([[ 3,  0],
+       [ 0, 24]])
+>>> print(A)
+[[1 2]
+ [3 4]]
+>>> A*10
+array([[10, 20],
+       [30, 40]])
+>>> B=np.array([10 , 20])
+>>> A*B
+array([[10, 40],
+       [30, 80]])
+>>> X=np.aaray([51,55], [14,19], [0,4])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/kjikuhar/.local/lib/python3.10/site-packages/numpy/__init__.py", line 414, in __getattr__
+    raise AttributeError("module {!r} has no attribute "
+AttributeError: module 'numpy' has no attribute 'aaray'. Did you mean: 'array'?
+>>> X=np.aaray([[51,55], [14,19], [0,4]])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/kjikuhar/.local/lib/python3.10/site-packages/numpy/__init__.py", line 414, in __getattr__
+    raise AttributeError("module {!r} has no attribute "
+AttributeError: module 'numpy' has no attribute 'aaray'. Did you mean: 'array'?
+>>> X=np.array([[51,55], [14,19], [0,4]])
+>>> print(X)
+[[51 55]
+ [14 19]
+ [ 0  4]]
+>>> X[0]
+array([51, 55])
+>>> X[0][1]
+np.int64(55)
+>>> for row in X:
+...     print(row)
+...
+[51 55]
+[14 19]
+[0 4]
+>>> X=X.flatten()
+>>> print(X)
+[51 55 14 19  0  4]
+>>> X[np.array([0,2,4])]
+array([51, 14,  0])
+>>> X>15
+array([ True,  True, False,  True, False, False])
+>>> X[X>15]
+array([51, 55, 19])
+>>>
+KeyboardInterrupt
+>>> 
