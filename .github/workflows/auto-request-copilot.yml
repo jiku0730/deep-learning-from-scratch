@@ -1,0 +1,60 @@
+name: Auto Copilot Review (JA)
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  request-and-instruct:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Copilot as reviewer
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            // すでにCopilotがレビュアーならスキップ
+            const reviewers = pr.requested_reviewers?.map(r => r.login) || [];
+            if (!reviewers.includes('github-copilot')) {
+              await github.request('POST /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers', {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                reviewers: ['github-copilot']
+              });
+              core.info('Requested review from github-copilot');
+            } else {
+              core.info('Copilot already requested. Skipping.');
+            }
+
+      - name: Post JA instruction comment (idempotent)
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            // 重複投稿防止：同内容のコメントが既にあるかチェック
+            const list = await github.request(
+              'GET /repos/{owner}/{repo}/issues/{issue_number}/comments',
+              { owner, repo, issue_number: pr.number, per_page: 100 }
+            );
+            const body = [
+              '👋 Copilot レビューをリクエストしました。',
+              '以下の指示で **日本語レビュー** をお願いします：',
+              '「このPRを日本語でレビューしてください。可読性・命名・例外処理・テストの観点で具体的に指摘し、必要なら修正案コードも提示してください。」'
+            ].join('\n');
+
+            const exists = (list.data || []).some(c => (c.body || '').includes('Copilot レビューをリクエストしました。'));
+            if (!exists) {
+              await github.request('POST /repos/{owner}/{repo}/issues/{issue_number}/comments', {
+                owner, repo, issue_number: pr.number, body
+              });
+              core.info('Posted JA instruction comment.');
+            } else {
+              core.info('Instruction comment already exists. Skipping.');
+            }
