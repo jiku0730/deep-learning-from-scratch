@@ -1,0 +1,14 @@
+{
+  "python.defaultInterpreterPath": ".venv/bin/python",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "editor.trimAutoWhitespace": true,
+    "editor.rulers": [79]
+  },
+  "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Path": "${workspaceFolder}/.venv/bin/autopep8"
+}
